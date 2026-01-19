@@ -6,6 +6,6 @@ class HelloAPIView(APIView):
     def get(self ,request):
         return Response(
             {"message": "Hello, this is my first DRF API"},
-            status=status.HTTP_200_00K
+            # status=status.HTTP_200_00K
         )
     
