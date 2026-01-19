@@ -1,6 +1,11 @@
-from django.http import JsonResponse
+from rest_framework.views import APIView 
+from rest_framework.response import Response
+from rest_framework import status
 
-def hello_api(request):
-    return JsonResponse({
-        "message":"Hello , this is my first Django Api"
-    })
+class HelloAPIView(APIView):
+    def get(self ,request):
+        return Response(
+            {"message": "Hello, this is my first DRF API"},
+            status=status.HTTP_200_00K
+        )
+    
