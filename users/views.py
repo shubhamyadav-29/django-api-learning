@@ -38,13 +38,13 @@
 #         )
         
 
-from rest_framework.generics import ListCreateAPIView
+from rest_framework.generics import RetrieveUpdateDestroyAPIView
 from .models import UserProfile
 from .serializers import UserProfileSerializer
 
-class UserListAPIView(ListCreateAPIView):
-    queryset= UserProfile.objects.all()
-    serializer_class =UserProfileSerializer
+class UserDetailAPIView(RetrieveUpdateDestroyAPIView):
+    queryset = UserProfile.objects.all()
+    serializer_class = UserProfileSerializer
         
         
  
