@@ -3,6 +3,7 @@ from rest_framework.authtoken.models import Token
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status,generics
+from rest_framework.permissions import IsAuthenticated
 
 from .models import UserProfile
 from .serializers import UserProfileSerializer
@@ -11,11 +12,13 @@ from .serializers import UserProfileSerializer
 class UserListCreateAPIView(generics.ListCreateAPIView):
     queryset = UserProfile.objects.all()
     serializer_class = UserProfileSerializer
+    permission_classes = [IsAuthenticated]
 
 
 class UserDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
     queryset = UserProfile.objects.all()
     serializer_class = UserProfileSerializer
+    permission_classes = [IsAuthenticated]
 
 
 class LoginAPIView(APIView):
