@@ -12,13 +12,14 @@ from .serializers import UserProfileSerializer
 class UserListCreateAPIView(generics.ListCreateAPIView):
     queryset = UserProfile.objects.all()
     serializer_class = UserProfileSerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes=[IsAuthenticated]   
 
 
 class UserDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
     queryset = UserProfile.objects.all()
     serializer_class = UserProfileSerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes=[IsAuthenticated]
+   
 
 
 class LoginAPIView(APIView):
