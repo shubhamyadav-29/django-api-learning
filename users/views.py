@@ -22,24 +22,24 @@ class UserDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
    
 
 
-class LoginAPIView(APIView):
-    def post(self ,request):
-        username = request.data.get("username")
-        password = request.data.get("password")
+# class LoginAPIView(APIView):
+#     def post(self ,request):
+#         username = request.data.get("username")
+#         password = request.data.get("password")
         
-        user = authenticate(username= username, password=password)
+#         user = authenticate(username= username, password=password)
         
-        if not user:
-            return Response(
-                {"error":"Invalid credentials"},
-                status=status.HTTP_401_UNAUTHORIZED
-            )
+#         if not user:
+#             return Response(
+#                 {"error":"Invalid credentials"},
+#                 status=status.HTTP_401_UNAUTHORIZED
+#             )
             
-        token,_ = Token.objects.get_or_create(user=user)
+#         token,_ = Token.objects.get_or_create(user=user)
         
-        return Response(
-            {"token": token.key},
-            status=status.HTTP_200_OK
-        )
+#         return Response(
+#             {"token": token.key},
+#             status=status.HTTP_200_OK
+#         )
             
             
